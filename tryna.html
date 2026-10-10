@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Funny Animation 😂</title>
+
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+        overflow: hidden;
+        height: 100vh;
+        font-family: Arial, sans-serif;
+        background: #87ceeb;
+    }
+
+    /* SKY */
+
+    .sky {
+        position: relative;
+        width: 100%;
+        height: 100vh;
+        overflow: hidden;
+        background: linear-gradient(#72c9ff, #dff7ff);
+    }
+
+    /* SUN */
+
+    .sun {
+        position: absolute;
+        top: 40px;
+        right: 70px;
+
+        width: 100px;
+        height: 100px;
+
+        background: #ffd93d;
+        border-radius: 50%;
+
+        box-shadow: 0 0 40px #ffd93d;
+
+        animation: sun 3s infinite alternate;
+    }
+
+    @keyframes sun {
+        from {
+            transform: scale(1);
+        }
+
+        to {
+            transform: scale(1.12);
+        }
+    }
+
+    /* CLOUDS */
+
+    .cloud {
+        position: absolute;
+
+        width: 130px;
+        height: 45px;
+
+        background: white;
+        border-radius: 50px;
+
+        opacity: .9;
+
+        animation: cloudMove 25s linear infinite;
+    }
+
+    .cloud::before,
+    .cloud::after {
+        content: "";
+
+        position: absolute;
+
+        background: white;
+        border-radius: 50%;
+    }
+
+    .cloud::before {
+        width: 60px;
+        height: 60px;
+
+        left: 20px;
+        bottom: 15px;
+    }
+
+    .cloud::after {
+        width: 70px;
+        height: 70px;
+
+        right: 15px;
+        bottom: 10px;
+    }
+
+    .cloud1 {
+        top: 120px;
+        left: -200px;
+    }
+
+    .cloud2 {
+        top: 220px;
+        left: -400px;
+        transform: scale(.7);
+
+        animation-delay: 8s;
+    }
+
+    @keyframes cloudMove {
+        from {
+            left: -250px;
+        }
+
+        to {
+            left: 110%;
+        }
+    }
+
+    /* GROUND */
+
+    .ground {
+        position: absolute;
+
+        bottom: 0;
+        width: 100%;
+        height: 180px;
+
+        background: #69b34c;
+    }
+
+    /* CHARACTER */
+
+    .character {
+        position: absolute;
+
+        bottom: 150px;
+        left: 15%;
+
+        width: 100px;
+        height: 130px;
+
+        animation: running 0.35s infinite alternate;
+    }
+
+    @keyframes running {
+
+        from {
+            transform: translateY(0) rotate(-3deg);
+        }
+
+        to {
+            transform: translateY(-8px) rotate(3deg);
+        }
+    }
+
+    /* HEAD */
+
+    .head {
+        position: absolute;
+
+        top: 0;
+        left: 10px;
+
+        width: 80px;
+        height: 80px;
+
+        background: #ffcc99;
+
+        border: 4px solid #222;
+
+        border-radius: 50%;
+    }
+
+    /* EYES */
+
+    .eye {
+        position: absolute;
+
+        top: 27px;
+
+        width: 13px;
+        height: 18px;
+
+        background: #222;
+
+        border-radius: 50%;
+    }
+
+    .eye.left {
+        left: 18px;
+    }
+
+    .eye.right {
+        right: 18px;
+    }
+
+    /* MOUTH */
+
+    .mouth {
+        position: absolute;
+
+        left: 27px;
+        bottom: 13px;
+
+        width: 28px;
+        height: 15px;
+
+        border-bottom: 4px solid #222;
+
+        border-radius: 50%;
+    }
+
+    /* BODY */
+
+    .body {
+        position: absolute;
+
+        top: 70px;
+        left: 25px;
+
+        width: 50px;
+        height: 55px;
+
+        background: #ff5252;
+
+        border: 4px solid #222;
+
+        border-radius: 20px;
+    }
+
+    /* LEGS */
+
+    .leg {
+        position: absolute;
+
+        bottom: -22px;
+
+        width: 12px;
+        height: 30px;
+
+        background: #222;
+
+        border-radius: 10px;
+    }
+
+    .leg.left {
+        left: 30px;
+
+        transform: rotate(25deg);
+    }
+
+    .leg.right {
+        right: 30px;
+
+        transform: rotate(-25deg);
+    }
+
+    /* PIZZA */
+
+    .pizza {
+        position: absolute;
+
+        right: 15%;
+
+        bottom: 210px;
+
+        font-size: 75px;
+
+        cursor: pointer;
+
+        user-select: none;
+
+        animation: pizzaFloat 1s infinite alternate;
+
+        transition: .2s;
+    }
+
+    @keyframes pizzaFloat {
+
+        from {
+            transform: rotate(-10deg) translateY(0);
+        }
+
+        to {
+            transform: rotate(10deg) translateY(-15px);
+        }
+    }
+
+    .pizza:hover {
+        transform: scale(1.2);
+    }
+
+    /* MESSAGE */
+
+    .message {
+        position: absolute;
+
+        top: 30px;
+        left: 50%;
+
+        transform: translateX(-50%);
+
+        padding: 12px 22px;
+
+        background: rgba(255,255,255,.8);
+
+        border-radius: 20px;
+
+        font-size: 20px;
+        font-weight: bold;
+
+        text-align: center;
+    }
+
+    /* SWEAT */
+
+    .sweat {
+        position: absolute;
+
+        top: 5px;
+        right: 0;
+
+        font-size: 25px;
+
+        opacity: 0;
+
+        animation: sweat 1s infinite;
+    }
+
+    @keyframes sweat {
+
+        0%,100% {
+            opacity: 0;
+        }
+
+        50% {
+            opacity: 1;
+        }
+    }
+
+    /* MOBILE */
+
+    @media(max-width:600px) {
+
+        .sun {
+            width: 70px;
+            height: 70px;
+            right: 25px;
+        }
+
+        .message {
+            width: 90%;
+            font-size: 16px;
+        }
+
+        .pizza {
+            right: 8%;
+            font-size: 60px;
+        }
+
+        .character {
+            left: 8%;
+        }
+    }
+
+</style>
+</head>
+
+<body>
+
+<div class="sky">
+
+    <div class="sun"></div>
+
+    <div class="cloud cloud1"></div>
+    <div class="cloud cloud2"></div>
+
+    <div class="message" id="message">
+        Click the 🍕 pizza!
+    </div>
+
+    <!-- CHARACTER -->
+
+    <div class="character" id="character">
+
+        <div class="head">
+
+            <div class="eye left"></div>
+            <div class="eye right"></div>
+
+            <div class="mouth"></div>
+
+            <div class="sweat">
+                💧
+            </div>
+
+        </div>
+
+        <div class="body"></div>
+
+        <div class="leg left"></div>
+        <div class="leg right"></div>
+
+    </div>
+
+    <!-- PIZZA -->
+
+    <div class="pizza" id="pizza">
+        🍕
+    </div>
+
+    <div class="ground"></div>
+
+</div>
+
+
+<script>
+
+const pizza = document.getElementById("pizza");
+const character = document.getElementById("character");
+const message = document.getElementById("message");
+
+let clicks = 0;
+
+
+/* PIZZA RUNS AWAY */
+
+pizza.addEventListener("click", function () {
+
+    clicks++;
+
+    /* Random position */
+
+    const x =
+        Math.random() * 70 + 10;
+
+    const y =
+        Math.random() * 55 + 20;
+
+    pizza.style.right = "auto";
+    pizza.style.left = x + "%";
+
+    pizza.style.bottom = y + "%";
+
+
+    /* Funny messages */
+
+    if (clicks === 1) {
+
+        message.innerText =
+            "HEY! COME BACK! 😭";
+
+    }
+
+    else if (clicks === 2) {
+
+        message.innerText =
+            "WHY ARE YOU RUNNING?! 😂";
+
+    }
+
+    else if (clicks === 3) {
+
+        message.innerText =
+            "I JUST WANT ONE BITE! 🍕";
+
+    }
+
+    else if (clicks === 4) {
+
+        message.innerText =
+            "WAIT... I'M GETTING TIRED... 💀";
+
+    }
+
+    else {
+
+        message.innerText =
+            "OKAY FINE... YOU WIN 😂";
+
+    }
+
+});
+
+
+/* MAKE CHARACTER FOLLOW PIZZA */
+
+setInterval(function () {
+
+    if (clicks > 0) {
+
+        character.style.left =
+            (10 + clicks * 5) + "%";
+
+    }
+
+}, 500);
+
+</script>
+
+</body>
+</html>
